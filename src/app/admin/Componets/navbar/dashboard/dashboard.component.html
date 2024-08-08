@@ -1,0 +1,47 @@
+  <main id="main" class="main">
+    <div class="greeting">
+      <!-- <h3>Welcome Admin</h3> -->
+      <h2 style="color: rgb(128 0 128 / 91%) !important;font-family: math;">{{ greeting }} , {{userName}}</h2>
+      <!--  <span style="color: #283779!important;">{{ loggedInUser.user_name }}</span> -->
+  <p style="color: grey; font-size: 18px;">Have a nice day .</p>
+    </div>
+    <div class="container">
+      <div class="pagetitle">
+        <h1>Dashboard</h1>
+        <nav>
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a>Admin</a></li>
+            <li class="breadcrumb-item active">Dashboard</li>
+          </ol>
+        </nav>
+
+        <h4>List Of All Products</h4>
+        <div class="row">
+          <div class="col">
+              <div class="card">
+                  <table class="table table-striped table-hover">
+                      <thead>
+                          <tr>
+                              <th>Image</th>
+                              <th>Name</th>
+                              <th>Price</th>
+                              <th>Quantity</th>
+                          </tr>
+                      </thead>
+                      <tbody>
+                          <tr *ngFor="let product of allProductArray ; let i = index">
+                              <td>
+                                  <img src="{{product.productImage}}" alt="">
+                              </td>
+                              <td>{{product.productName}}</td>
+                              <td>{{product.productPrice}}</td>
+                              <td>{{product.productQuantity}}</td>
+                          </tr>
+                      </tbody>
+                  </table>
+              </div>
+          </div>
+      </div>
+      </div>
+    </div>
+  </main>

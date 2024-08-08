@@ -1,0 +1,206 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css" />
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<app-navbar></app-navbar>
+
+<div class="container register">
+  <div class="row">
+    <div class="col-md-3 register-left">
+      <img src="../../../../assets/Images/plantTransparentIcon.png" style="width : 120px" alt="">
+      <h3>Welcome</h3>
+      <p class="fBold">You are only one step away !!</p>
+      <p class="m-0 fBold">Already a User?</p>
+      <input class="mt-0" type="submit" name="" value="Login" (click)="navigateToLogin()" /><br />
+    </div>
+    <div class="col-md-9 register-right">
+      <ul class="nav nav-tabs nav-justified" id="myTab" role="tablist">
+        <li class="nav-item">
+          <a class="nav-link" id="home-tab" data-toggle="tab" role="tab" aria-controls="home" aria-selected="true"
+            (click)="activeTab = 'Owner'" [ngClass]="activeTab == 'Owner'?'active':''">Seller</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="profile-tab" data-toggle="tab" role="tab" aria-controls="profile"
+            aria-selected="false" (click)="activeTab = 'Buyer'" [ngClass]="activeTab == 'Buyer'?'active':''">Buyer</a>
+        </li>
+      </ul>
+      <div class="tab-content" id="myTabContent">
+        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+          <div *ngIf="activeTab == 'Owner'">
+            <h3 class="register-heading">Apply as Seller</h3>
+            <form [formGroup]="SellerForm" (ngSubmit)="SellerGetOTP()">
+              <div class="row register-form">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <input type="text" class="form-control" placeholder="First Name *" formControlName="firstName" />
+                    <div
+                      *ngIf="SellerForm.get('firstName')?.invalid && (SellerForm.get('firstName')?.dirty || SellerForm.get('firstName')?.touched)">
+                      <p style="color: red;">First Name is required</p>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <input type="text" maxlength="10" minlength="10" class="form-control" placeholder="Phone *"
+                      formControlName="phone" />
+                    <div
+                      *ngIf="SellerForm.get('phone')?.invalid && (SellerForm.get('phone')?.dirty || SellerForm.get('phone')?.touched)">
+                      <p style="color: red;">Phone number is required and should be 10 digits</p>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <input type="password" class="form-control" placeholder="Password *" formControlName="password" />
+                    <div
+                      *ngIf="SellerForm.get('password')?.invalid && (SellerForm.get('password')?.dirty || SellerForm.get('password')?.touched)">
+                      <p style="color: red;">Password is required (minimum length is 6)</p>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <textarea type="text" class="form-control mt-3" placeholder="Shipping Address *" cols="6" rows="6"
+                      formControlName="address"></textarea>
+                    <div
+                      *ngIf="SellerForm.get('address')?.invalid && (SellerForm.get('address')?.dirty || SellerForm.get('address')?.touched)">
+                      <p style="color: red;">Address is required</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Last Name *" formControlName="lastName" />
+                    <div
+                      *ngIf="SellerForm.get('lastName')?.invalid && (SellerForm.get('lastName')?.dirty || SellerForm.get('lastName')?.touched)">
+                      <p style="color: red;">Last Name is required</p>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <input type="email" class="form-control" placeholder="Email *" formControlName="email" />
+                    <div
+                      *ngIf="SellerForm.get('email')?.invalid && (SellerForm.get('email')?.dirty || SellerForm.get('email')?.touched)">
+                      <p style="color: red;">Valid Email is required</p>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <input type="password" class="form-control" placeholder="Confirm Password *"
+                      formControlName="confirmPassword" />
+                    <div
+                      *ngIf="SellerForm.get('confirmPassword')?.invalid && (SellerForm.get('confirmPassword')?.dirty || SellerForm.get('confirmPassword')?.touched)">
+                      <p style="color: red;">Confirm Password is required and must match Password</p>
+                    </div>
+                  </div>
+                  <input type="submit" data-bs-toggle="modal" data-bs-target="#sellerModal" class="btnRegister"
+                    value="Register" />
+                </div>
+              </div>
+            </form>
+          </div>
+          <div *ngIf="activeTab == 'Buyer'">
+            <h3 class="register-heading">Apply as Buyer</h3>
+            <form [formGroup]="BuyerForm" (ngSubmit)="BuyerGetOTP()">
+              <div class="row register-form">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <input type="text" class="form-control" placeholder="First Name *" formControlName="firstName" />
+                    <div
+                      *ngIf="BuyerForm.get('firstName')?.invalid && (BuyerForm.get('firstName')?.dirty || BuyerForm.get('firstName')?.touched)">
+                      <p style="color: red;">First Name is required</p>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <input type="text" maxlength="10" minlength="10" class="form-control" placeholder="Phone *"
+                      formControlName="phone" />
+                    <div
+                      *ngIf="BuyerForm.get('phone')?.invalid && (BuyerForm.get('phone')?.dirty || BuyerForm.get('phone')?.touched)">
+                      <p style="color: red;">Phone number is required and should be 10 digits</p>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <input type="password" class="form-control" placeholder="Password *" formControlName="password" />
+                    <div
+                      *ngIf="BuyerForm.get('password')?.invalid && (BuyerForm.get('password')?.dirty || BuyerForm.get('password')?.touched)">
+                      <p style="color: red;">Password is required (minimum length is 6)</p>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <textarea type="text" class="form-control mt-3" placeholder="Shipping Address *" cols="6" rows="6"
+                      formControlName="address"></textarea>
+                    <div
+                      *ngIf="BuyerForm.get('address')?.invalid && (BuyerForm.get('address')?.dirty || BuyerForm.get('address')?.touched)">
+                      <p style="color: red;">Address is required</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Last Name *" formControlName="lastName" />
+                    <div
+                      *ngIf="BuyerForm.get('lastName')?.invalid && (BuyerForm.get('lastName')?.dirty || BuyerForm.get('lastName')?.touched)">
+                      <p style="color: red;">Last Name is required</p>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <input type="email" class="form-control" placeholder="Email *" formControlName="email" />
+                    <div
+                      *ngIf="BuyerForm.get('email')?.invalid && (BuyerForm.get('email')?.dirty || BuyerForm.get('email')?.touched)">
+                      <p style="color: red;">Valid Email is required</p>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <input type="password" class="form-control" placeholder="Confirm Password *"
+                      formControlName="confirmPassword" />
+                    <div
+                      *ngIf="BuyerForm.get('confirmPassword')?.invalid && (BuyerForm.get('confirmPassword')?.dirty || BuyerForm.get('confirmPassword')?.touched)">
+                      <p style="color: red;">Confirm Password is required and must match Password</p>
+                    </div>
+                  </div>
+                  <input type="submit" data-bs-toggle="modal" data-bs-target="#buyerModal" class="btnRegister"
+                    value="Register" />
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>
+
+<!-- Modal -->
+<div *ngIf="!BuyerForm.invalid" class="modal fade" id="buyerModal" tabindex="-1" aria-labelledby="buyerModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="buyerModalLabel">Verification</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body text-center">
+        <h1>Enter Your OTP</h1>
+        <p>We have send you an otp please check your email</p>
+        <input type="tel" [(ngModel)]="enteredOtp">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" data-bs-dismiss="modal" class="btn btn-primary" (click)="RegisterAsBuyer()">Confirm?</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--  for Seller                  -->
+<div *ngIf="!SellerForm.invalid" class="modal fade" id="sellerModal" tabindex="-1" aria-labelledby="sellerModalLabel2" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="sellerModalLabel2">Verification</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body text-center">
+        <h1>Enter Your OTP</h1>
+        <p>We have send you an otp please check your email</p>
+        <input type="tel" [(ngModel)]="enteredOtp">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" data-bs-dismiss="modal" class="btn btn-primary" (click)="RegisterAsSeller()">Confirm?</button>
+      </div>
+    </div>
+  </div>
+</div>

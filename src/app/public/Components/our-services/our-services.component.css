@@ -1,0 +1,25 @@
+.wrapper{
+    width: 98%;
+
+}
+.container .report-container{
+    align-items: center;
+}
+.container .image {
+    min-height: 629px;
+    background-image: url('../../../../assets/Images/bgGirl.jpg');
+    background-position: 0% 50%;
+    border-radius: 322px 0px 0px 322px;
+    margin-bottom: 20px;
+    position: relative;
+    left: 86px;
+    background-repeat: no-repeat;
+
+}
+.container .services{
+    width: 95%;
+    margin: 15px 110px;
+}
+h1 span{
+    color: rgb(140 39 141);
+}

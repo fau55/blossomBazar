@@ -1,0 +1,112 @@
+<!-- ======= Header ======= -->
+<header id="header" class="header fixed-top d-flex align-items-center">
+  <div class="d-flex align-items-center justify-content-between">
+
+    <!-- <a class="logo d-flex align-items-center"> -->
+    <a routerLink="home">
+      <img src="../../../../assets/Images/navbar/logo.png" alt="" width="180" height="80">
+      <!-- </a> -->
+    </a>
+  </div>
+
+  <!-- End Logo -->
+  <div class="search-bar">
+    <form class="search-form d-flex align-items-center" method="POST" action="#" style="margin-left: 76px;">
+      <input type="text" name="query" placeholder="Search" title="Enter search keyword" style="border-radius: 14px;" />
+      <button type="submit" title="Search"><i class="bi bi-search"></i></button>
+    </form>
+  </div>
+  <!-- End Search Bar -->
+
+  <nav class="header-nav ms-auto">
+    <ul class="d-flex align-items-center">
+      <li class="nav-item d-block d-lg-none">
+        <a class="nav-link nav-icon search-bar-toggle" href="#">
+          <i class="bi bi-search"></i>
+        </a>
+      </li>
+
+      <li class="nav-item dropdown pe-3">
+        <a class="nav-link nav-profile d-flex align-items-center pe-0" data-bs-toggle="modal"
+          data-bs-target="#exampleModal">
+          <img src="{{profilePic}}" class="userProfileIcon" />
+        </a>
+      </li>
+    </ul>
+  </nav>
+  <!-- End Icons Navigation -->
+</header>
+<!-- End Header -->
+<i class="bi bi-list toggle-sidebar-btn" data-bs-toggle="offcanvas" data-bs-target="#sidebar" aria-expanded="false"
+  aria-controls="sidebar" role="banner"></i>
+<!-- ======= Sidebar ======= -->
+<!-- new sidebar start-->
+<div class="row">
+  <div class="col-3">
+    <aside style="margin-top: 110px;">
+      <div class="side-bar " id="sidebar">
+        <ul>
+          <li class="items">
+            <a routerLink="/home"> <img src="../../../assets/Images/dashboard/menu.png" alt="" class="img1">
+              <span class="text">Home</span></a>
+          </li>
+          <li class="items">
+            <a routerLink="dashboard"> <img src="../../../assets/Images/dashboard/menu.png" alt="" class="img1">
+              <span class="text">Dashboard</span></a>
+          </li>
+          <li class="items">
+            <a routerLink="user">
+              <img src="../../../assets/Images/dashboard/user.png" alt="" class="img1">
+              <span class="text">User</span></a>
+          </li>
+          <li class="items"><a routerLink="products"> <img src="../../../assets/Images/dashboard/product.png" alt=""
+                class="img1">
+              <span class="text">Products</span></a>
+          </li>
+          <li class="items"><a routerLink="/about-us"> <img src="../../../assets/Images/dashboard/add-user.png" alt=""
+                class="img1">
+              <span class="text">About Us</span></a>
+          </li>
+          <li class="items"><a routerLink="/contact-us"> <img src="../../../assets/Images/dashboard/delete-user.png"
+                alt="" class="img1">
+              <span class="text">Contact Us</span></a>
+          </li>
+          <li class="items" (click)="logout()"><a> <img src="../../../assets/Images/dashboard/delete-user.png"
+                alt="" class="img1">
+              <span class="text">Logout</span></a>
+          </li>
+
+
+        </ul>
+      </div>
+    </aside>
+  </div>
+  <div class="col pt-5 px-1">
+    <router-outlet></router-outlet>
+  </div>
+</div>
+<!-- new side bar end -->
+
+<!-- edit profile  -->
+<!-- Button trigger modal -->
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Edit Profile</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <upload-dropzone [options]="options" [onUpdate]="onUpdate" [width]="width" [height]="height" upload
+          multi="false">
+        </upload-dropzone>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="onSave()">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>

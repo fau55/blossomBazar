@@ -1,0 +1,57 @@
+<app-navbar></app-navbar>
+<div class="header">
+    <img src="../../../../assets/Images/home/home.jpg" class="main-image" />
+    <div class="headingText" data-aos="fade-right" data-aos-delay="1000">
+      <h1>Flower Shop Management System</h1>
+      <h2>Join us Today for your better growth Tomorrow</h2>
+      <button class="shopNow" type="button"routerLink="/login" *ngIf="!isUserLoggedIn">Shop Now</button>
+    </div>
+  </div>
+  <section class="all-products">
+
+    <div class="row px-3">
+      <div class="col-4" *ngFor="let product of allProductsArray" data-aos="fade-up" data-aos-delay="5000">
+        <div class="card text-center">
+          <img class="card-img-top" src="{{product.productImage}}" alt="Title" />
+          <div class="card-body">
+            <h4 class="card-title">{{product.productName}}</h4>
+            <p class="card-text">Rs.{{product.productPrice}}</p>
+            <p class="card-text">Quantity: {{product.productQuantity}}</p>
+          </div>
+          <div class="card-footer">
+            <div class="row">
+              <div class="col-8 text-start">
+                <button class="ViewDetails"  data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample" (click)="viewdDetails(product)" >View Details</button>
+              </div>
+              <div class="col text-end">
+              <img src="../../../../assets/Images/products/shopping-cart.png" (click)="AddToCart(product._id)" class="cart" alt="">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+  <app-footer>
+  </app-footer>
+
+<!-- view details  -->
+<div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="offcanvasExampleLabel">View Details</h5>
+    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+<div class="card text-start" style="background :linear-gradient(to right, #ed4264, #ffedbc); margin-top: 30px;">
+  <img class="card-img-top mt-2" class="viewImage" src="{{viewMore.productImage}}" alt="Title" />
+  <div class="card-body">
+    <h4 class="card-title">{{viewMore.productName}}</h4>
+    <p class="card-text">Rs.{{viewMore.productPrice}}</p>
+    <p class="card-text mb-3">Quantity :{{viewMore.productQuantity}}</p>
+    <p class="card-text" style="line-height: 1; font-size: 12px;">{{viewMore.productDescription}}</p>
+  </div>
+</div>
+
+  </div>
+</div>

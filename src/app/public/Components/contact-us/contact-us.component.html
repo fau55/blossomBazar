@@ -1,0 +1,82 @@
+<app-navbar></app-navbar>
+
+<div class="breadcrumbs">
+    <div class="container">
+        <h2>Contact Us</h2>
+        <p>Thank you for considering us for your floral needs! Whether you're planning a wedding, celebrating a special
+            occasion, or simply want to brighten someone's day, we're here to help you find the perfect arrangement.
+            Feel free to reach out to us with any questions, special requests, or to place an order. Your satisfaction
+            is our top priority, and we look forward to assisting you in creating beautiful memories with our Blossom
+            Bazar</p>
+    </div>
+</div>
+<section id="contact" class="contact">
+    <div data-aos="fade-up" data-aos-duration="1500">
+        <iframe width="100%" height="350" id="gmap_canvas"
+            src="https://maps.google.com/maps?q=aurangabad,maharashtra&t=&z=17&ie=UTF8&iwloc=&output=embed"
+            frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+    </div>
+
+    <div class="container" data-aos="fade-up" data-aos-duration="1500">
+
+        <div class="row mt-5">
+
+            <div class="col-lg-4">
+                <div class="info">
+                    <div class="address">
+                        <i class="bi bi-geo-alt"></i>
+                        <h4>Location:</h4>
+                        <p>National Colony, Aurangabad</p>
+                    </div>
+
+                    <div class="email">
+                        <i class="bi bi-envelope"></i>
+                        <h4>Email:</h4>
+                        <p>BlossomBazar&#64;gmail.com</p>
+                    </div>
+
+                    <div class="phone">
+                        <i class="bi bi-phone"></i>
+                        <h4>Call:</h4>
+                        <p>+91 9021444741</p>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="col-lg-8 mt-5 mt-lg-0">
+
+                <form class="php-email-form"  [formGroup]="contatctUsFormControl" (ngSubmit)="sendEmail()">
+                    <div class="row">
+                        <div class="col-md-6 form-group">
+                            <input type="text" name="name" class="form-control" id="name" placeholder="Your Name"
+                                required formControlName="name">
+                        </div>
+                        <div class="col-md-6 form-group mt-3 mt-md-0">
+                            <input type="email" class="form-control" name="email" id="email" placeholder="Your Email"
+                                required formControlName="email">
+                        </div>
+                    </div>
+                    <div class="form-group mt-3">
+                        <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject"
+                            required formControlName="subject">
+                    </div>
+                    <div class="form-group mt-3">
+                        <textarea class="form-control" name="message" rows="5" placeholder="Message" required
+                            formControlName="message"></textarea>
+                    </div>
+                    <div class="my-3">
+                        <div class="loading">Loading</div>
+                        <div class="error-message"></div>
+                        <div class="sent-message">Your message has been sent. Thank you!</div>
+                    </div>
+                    <div class="text-center"><button type="submit">Send Message</button></div>
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+</section>

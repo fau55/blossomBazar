@@ -1,0 +1,141 @@
+p {
+    font-size: 22px;
+    /* color: rgb(2, 113, 117) !important; */
+}
+
+h1 {
+    font-size: 50px;
+    font-weight: 700;
+    color: rgb(93, 2, 93) !important;
+}
+
+.shopNow {
+    width: 100px;
+    /* height: 100px; */
+    padding: 8px;
+    color: white;
+    background-color: blueviolet;
+    border: none;
+    border-radius: 20px;
+}
+
+.main-image {
+    height: 443px;
+    opacity: 0.5;
+    width: 100%;
+    position: absolute;
+    z-index: 0;
+    object-fit: cover;
+}
+
+.headingText {
+    color: rgb(57, 0, 68) !important;
+    position: absolute;
+    z-index: 1;
+    line-height: 2;
+    top: 150px;
+    left: 55px;
+}
+
+.headingText h1 {
+    overflow-y: hidden;
+    font-size: 50px;
+    font-weight: 900;
+    /* color: #fff; */
+}
+
+.headingText h2 {
+    /* color: #fff; */
+}
+
+.hero-section {
+    position: relative;
+    top: 460px;
+}
+
+.hero-section h2 {
+    font-weight: 600;
+    color: #535353;
+}
+
+.hero-section p {
+    font-size: 22px;
+    color: #646464;
+    font-style: italic;
+}
+
+ul li {
+    font-size: 22px;
+    margin-bottom: 15px;
+    list-style: none;
+}
+
+.container img {
+    width: 100%;
+    height: 500px;
+}
+
+.container-fluid {
+    height: 200px;
+    margin-top: 500px;
+    background-color: #f6f7f6;
+    text-align: center;
+    padding-top: 40px;
+}
+
+.container-fluid h1 {
+    color: #5fcf80;
+}
+
+.icon-box i {
+    color: #5fcf80;
+}
+.header{
+    height: 18px !important;
+}
+.all-products {
+    width: 100%;
+   margin-top: 420px;
+    background-color: rgb(251, 234, 230);
+}
+
+.card .card-img-top{
+    width: 80%;
+    margin: auto;
+    height: 200px;
+    padding: 10px;
+
+}
+
+.card{
+    width: 98%;
+    margin: auto;
+    margin-bottom: 30px;
+    line-height: 0.5;
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+    /* color: white; */
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: 400;
+    border-radius: 0;
+    border: none;
+    padding: 10px;
+}
+.ViewDetails{
+    padding: 12px;
+    border: none;
+    border-radius: 20px;
+    background: linear-gradient(to right, #ff00cc, #333399);
+    color: white;
+}
+
+.cart{
+    width: 35px;
+    height: 35px;
+    fill: #5fcf80;
+}
+.viewImage{
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+    width: 150px;
+    height: 150px;
+    margin: auto;
+}

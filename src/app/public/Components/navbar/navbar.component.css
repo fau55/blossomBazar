@@ -1,0 +1,176 @@
+.cust-nav{
+    /* background: white!important; */
+    /* background: linear-gradient(90deg, #e3ffe7 0%, #d9e7ff 100%); */
+    background-color: white;
+    /* padding: 3px 70px!important; */
+  }
+  .shopping-cart
+  {
+    font-size: 25px;
+    margin-left: 20px;
+  }
+  .modal-dialog
+  {
+      margin-left: 350px;
+  }
+  .modal-content
+  {
+      width: 800px;
+  }
+  .login-btn {
+      margin-left: 22px;
+      background: #8d2689;
+      color: #fff;
+      border-radius: 50px;
+      padding: 8px 25px;
+      white-space: nowrap;
+      transition: 0.3s;
+      font-size: 14px;
+      display: inline-block;
+    }
+    
+    .login-btn:hover {
+      background: #672161;
+      color: #fff;
+    }
+    
+    @media (max-width: 768px) {
+      .login-btn {
+        margin: 0 15px 0 0;
+        padding: 6px 18px;
+      }
+    }
+  
+    
+  
+  @media (min-width: 1200px){  
+  .container {
+      max-width: 1400px!important;
+  }
+  }
+  
+  .container {
+    width: 100%!important;
+    padding-right: 15px!important;
+    padding-left: 15px!important;
+    margin-right: auto!important;
+    margin-left: auto!important;
+  }
+  
+  
+  .navbar {
+    position: relative!important;
+    display: flex!important;
+    flex-wrap: wrap!important;
+    align-items: center!important;
+    justify-content: space-between!important;
+    padding: 0.5rem 1rem!important;
+  }
+  
+   .logo a{
+    color : #8d2689!important;
+   }
+   .logo a:hover{
+    color : #5fcf80!important;
+   }
+  
+   .ActiveLink{
+    color : #8d2689!important;
+   }
+  
+  
+   .userProfileIcon{
+    width: 40px;
+    border-radius: 50%;
+    margin-left: 10%;
+   }
+  
+   @media only screen and (max-width: 600px) {
+  
+    .sub-total{
+      margin: 0 !important;
+      font-size: 22px!important;
+      margin-top: 1px!important;
+    }
+    
+    .Price{
+      font-size: 25px!important;
+    }
+    
+    .checkout-btn{
+      font-size: 25px!important;
+    }
+    
+    }
+    
+    .sub-total{
+      margin-left: 8rem;
+      font-size: 28px;
+    }
+    
+    .Price{
+      font-size: 28px;
+    }
+    
+    .checkout-btn{
+      color: white;
+      background-color: black;
+      border: none;
+      border-radius: 0;
+      padding: 5px;
+      height: 60px;
+      font-size: 28px;
+      font-family: 'Mulish', sans-serif;
+    
+    }
+    
+    .C-S{
+      font-size: 18px;
+      margin-top: 18px;
+      text-decoration: underline;
+      color: #6c757d;
+      cursor: pointer;
+      font-family: 'Mulish', sans-serif;
+      word-spacing: 7px;
+    
+    }
+    
+    
+    .yourCart{
+      font-family: 'Mulish', sans-serif;
+      font-weight: 700;
+      font-size: 30px;
+    }
+  
+  
+    .get-started-btn{
+      padding : 10px 20px!important;
+    }
+  
+    .login-btn{
+      padding : 10px 20px!important;
+      font-size : 16px!important;
+    }
+    .carttotal h4{
+      font-weight: 600;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+    .emptyCart h4{
+      font-size: 50px;
+      text-align: center;
+      font-weight: 600;
+      font-family: cursive;
+    }
+    .emptyCart p{
+      text-align: center;
+      font-weight: 600;
+      font-family: cursive;
+      font-size: 20px;
+    }
+    .card img{
+      box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+      width: 80%;
+      height: 200px;
+      margin: auto;
+      margin-top: 20px;
+    }

@@ -1,0 +1,119 @@
+<header id="header">
+  <div class="cust-nav d-flex align-items-center fixed-top">
+    <div class="row">
+      <div class="col-3">
+        <a routerLink="home">
+          <img src="../../../../assets/Images/navbar/logo.png" alt="" width="250" height="100">
+        </a>
+      </div>
+      <div class="col text-end pt-3">
+        <nav id="navbar" class="navbar order-last order-lg-0">
+          <ul>
+            <li style="margin-left: 120px;"><a routerLink="/home">Home</a></li>
+            <li><a routerLink="/about-us">About</a></li>
+            <li>
+              <a routerLink="/contact-us">Contact</a>
+            </li>
+            <li>
+              <a routerLink="/our-service">Our Service</a>
+            </li>
+            <li *ngIf="!isUserLoggedIn">
+              <a routerLink="/register" class="get-started-btn">Register</a>
+            </li>
+
+            <li *ngIf="!isUserLoggedIn">
+              <a routerLink="/login" class="login-btn mt-1">Login</a>
+            </li>
+
+            <li *ngIf="isUserLoggedIn" style="margin-left: 60px; margin-right: 20px;" data-bs-toggle="modal"
+              data-bs-target="#exampleModal2">
+              <img src="{{profilePic}}" class="userProfileIcon" />
+            </li>
+
+            <li *ngIf="isUserLoggedIn" class="text-center" style="margin-top: 14px">
+              <p>{{ userName }}</p>
+            </li>
+
+            <li *ngIf="isUserLoggedIn">
+              <svg xmlns="http://www.w3.org/2000/svg" style=" width: 70px ;height: 30px; margin-left: 5px"
+                class="bi bi-cart3" data-bs-toggle="modal" data-bs-target="#exampleModal" class="mb-2"
+                fill="currentColor" class="bi bi-cart3" viewBox="0 0 16 16">
+                <path
+                  d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l.84 4.479 9.144-.459L13.89 4zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2" />
+              </svg>
+            </li>
+            <li *ngIf="isUserLoggedIn" style="margin-top: 2px; margin-left: 20px">
+              <button class="btn btn-warning" (click)="logout()">Logout</button>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+    <!-- .navbar -->
+  </div>
+</header>
+<!-- End Header -->
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Shopping Cart</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="CartContainer p-4">
+        <div class="row my-2">
+          <div class="col p-2 text-end carttotal">
+            <h4>total Price: {{totalPrice}}</h4>
+          </div>
+        </div>
+        <div class="row px-2">
+          <div class="emptyCart" *ngIf="cartProductArray.length === 0">
+            <h4>Cart is Empty</h4>
+            <p>Shop now...</p>
+          </div>
+          <div class="col-12 col-md-6 " *ngFor="let product of cartProductArray">
+            <div class="card text-start">
+              <img class="card-img-top" width="100px" height="300" [src]="product.productDetail.productImage"
+                alt="Title" />
+              <div class="card-body">
+                <h4 class="card-title">{{ product.productDetail.productName }}</h4>
+                <p class="card-text">{{ product.productDetail.productPrice }}</p>
+              </div>
+              <div class="card-footer">
+                <button class="btn btn-secondary" (click)="removeProduct(product._id)">Remove Product</button>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <button class="btn btn-success" (click)="purchedAll()" *ngIf="cartProductArray.length > 0">Buy
+                Now</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel2" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel2">Edit Profile</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <upload-dropzone [options]="options" [onUpdate]="onUpdate" [width]="width" [height]="height" upload
+          multi="false">
+        </upload-dropzone>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="onSave()">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>

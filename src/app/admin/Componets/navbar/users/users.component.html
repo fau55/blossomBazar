@@ -1,0 +1,110 @@
+<div id="user">
+    <h4 class="heading">All Users</h4>
+    <div class="row">
+        <div class="col-6" *ngFor="let user of AllUserArray; let i = index">
+            <div class="card text-start">
+            <img class="card-img-top" src="{{user.profilePhoto}}" alt="Title" />
+            <div class="card-body">
+                <h4 class="card-title">{{user.firstName}} {{user.lastName}}</h4>
+                <p class="card-text">{{user.phone}}</p>
+                <p class="card-text">{{user.email}}</p>
+                <p class="card-text">{{user.address}}</p>
+                <p class="card-text">{{user.role}}</p>
+            </div>
+            <div class="card-footer">
+                <button class="btn btn-primary" data-bs-toggle="modal"
+                data-bs-target="#exampleModal" (click)="editUser(i)">Edit</button>
+                <button class="btn btn-secondary ms-1"(click)="deleteUser(user._id)">Delete</button>
+            </div>
+        </div>
+        </div>
+    </div>
+</div>
+
+<!-- Model For Edit  -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Edit Profile</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <div class="card text-start">
+                <img class="card-img-top" src="{{userEdit.profilePhoto}}" alt="Title" />
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col">
+                      <p class="card-text">First Name:</p>
+                      <input type="text" class="form-control" [(ngModel)]="userEdit.firstName"
+                      [ngModelOptions]="{standalone: true}">
+                    </div>
+                    <div class="col">
+                      <p class="card-text">Last Name:</p>
+                      <input type="text" class="form-control" [(ngModel)]="userEdit.lastName"
+                      [ngModelOptions]="{standalone: true}">
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col">
+                      <p class="card-text">Email:</p>
+                      <input type="text" class="form-control" disabled [(ngModel)]="userEdit.email"
+                      [ngModelOptions]="{standalone: true}">
+                    </div>
+                    <div class="col">
+                      <p class="card-text">Password :</p>
+                      <input type="text" class="form-control" [(ngModel)]="userEdit.password"
+                      [ngModelOptions]="{standalone: true}">
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col">
+                      <p class="card-text">Phone No :</p>
+                      <input type="text" class="form-control" [(ngModel)]="userEdit.phone"
+                      [ngModelOptions]="{standalone: true}">
+                    </div>
+                    <div class="col">
+                      <p class="card-text">Address :</p>
+                      <input type="text" class="form-control" [(ngModel)]="userEdit.address"
+                      [ngModelOptions]="{standalone: true}">
+                    </div>
+                  </div>
+                    <p class="card-text">Role :</p>
+                    <input type="text" class="form-control" disabled [(ngModel)]="userEdit.role"
+                    [ngModelOptions]="{standalone: true}">
+                </div>
+            </div>
+            
+          <!-- <upload-dropzone [options]="options" [onUpdate]="onUpdate" [width]="width" [height]="height" upload
+            multi="false">
+          </upload-dropzone> -->
+        </div>
+        <div class="modal-footer">
+          <p style="color: red;">Note : Email Id And Role Can't be Edited</p>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary"(click)="confirmUserEdit()">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<!-- Model For Delete -->
+<div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel2" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel2">Edit Profile</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <!-- <upload-dropzone [options]="options" [onUpdate]="onUpdate" [width]="width" [height]="height" upload
+            multi="false">
+          </upload-dropzone> -->
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="onSave()">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>

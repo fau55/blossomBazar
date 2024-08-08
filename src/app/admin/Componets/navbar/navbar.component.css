@@ -1,0 +1,90 @@
+/* Make the scrollbar thin */
+::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+}
+
+/* Change the color of the scrollbar thumb */
+::-webkit-scrollbar-thumb {
+    background-color: #8080802b; /* Change this to your desired color */
+    border-radius: 10px; /* Rounded corners for the thumb */
+}
+
+/* Optional: Change the color of the scrollbar track */
+::-webkit-scrollbar-track {
+    background-color: #f1f1f1; /* Change this to your desired track color */
+}
+
+/* Optional: Change the color of the scrollbar corner */
+::-webkit-scrollbar-corner {
+    background-color: #f1f1f1; /* Change this to your desired corner color */
+}
+
+/* Remove the arrows at the ends of the scrollbar */
+::-webkit-scrollbar-button {
+    display: none !important;
+}
+ol, ul {
+    padding-left: 0.5rem !important;
+}
+.closeButton {
+    font-size: 28px!important;
+}
+
+.userProfileIcon {
+    width: 40px;
+    border-radius: 50%;
+    margin-left: 10%;
+}
+
+.side-bar {
+    overflow-x: hidden;
+    border-radius: 10px;
+    overflow: auto;
+    color: white;
+    background: #8c269dfa;
+    width: 260px;
+    height: 78vh;
+    /* padding-top: 29px; */
+    position: fixed;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    font-family: math;
+}
+
+.side-bar ul li {
+    list-style-type: none;
+    padding: 20px;
+}
+.side-bar ul li a span{
+    padding: 13px;
+    color: white;
+}
+
+.side-bar ul li a span:hover{
+    color: #3ac163c8;
+}
+.side-bar .img1{
+    width: 40px !important;
+    /* background: rgba(51, 201, 204, 0.461); */
+
+    background:     white;
+    border-radius: 8px;
+    padding: 10px;
+}
+.side-bar .img2{
+    width: 35px !important;
+   background:     white;
+    border-radius: 8px;
+    padding: 10px;
+}
+.submenu{
+    overflow-x: hidden;
+    margin-top: 6px;
+    padding-left: 1.5rem !important;
+}
+/*  */
+#header{
+    height: 90px;
+    overflow-x: hidden;
+    padding: 4px 0;
+}
