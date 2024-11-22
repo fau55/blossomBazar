@@ -22,8 +22,8 @@ import { provideAuth, getAuth } from '@angular/fire/auth';
 import { provideFirestore, getFirestore } from '@angular/fire/firestore';
 import { provideStorage, getStorage } from '@angular/fire/storage';
 import { environment } from "../../../Enviroments/enviroments";
-import { OurServicesComponent } from './Components/our-services/our-services.component';
 // firebase End
+import { OurServicesComponent } from './Components/our-services/our-services.component';
 
 const routes: Routes = [
   {

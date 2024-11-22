@@ -3,11 +3,11 @@ import Swal from 'sweetalert2';
 //?firebase
 import { UploadWidgetConfig, UploadWidgetOnUpdateEvent } from "@bytescale/upload-widget";
 import { Storage, ref, uploadBytesResumable, getDownloadURL } from "@angular/fire/storage";
+//?firebase end
 import { UserService } from '../../../Service/user.service';
 import { Router } from '@angular/router';
 import { Cart } from '../../../Models/cart';
 import { CartService } from '../../../Service/cart.service';
-//?firebase end
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
